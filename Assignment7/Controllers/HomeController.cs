@@ -14,5 +14,10 @@ namespace Assignment7.Controllers
 
             return View();
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }

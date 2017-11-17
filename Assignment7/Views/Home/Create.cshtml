@@ -1,0 +1,32 @@
+﻿<html ng-app="personApp">
+
+
+<body ng-controller="PersonController">
+
+    <div class="jumbotron" ng-init="getData()">
+
+    </div>
+        
+        
+
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>City</th>
+            <th>Occupation</th>
+        </tr>
+
+        <tr ng-repeat="model in data track by $index">
+            <td>{{model.Name}}</td>
+            <td>{{model.City}}</td>
+            <td>{{model.Occupation}}</td>
+        </tr>
+
+       
+    </table>
+
+
+
+</body>
+</html>

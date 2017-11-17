@@ -1,4 +1,7 @@
-﻿body {
+﻿/*SHIFT + F5 stop refresh*/
+
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -7,6 +10,66 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+}
+.brand{
+    color:rgb(173, 173, 133);
+    font-size:1.5em;
+    font-family:Arial;
+    font-stretch:extra-expanded;
+    text-decoration:none;
+}
+
+.menubar{
+    text-align:center;
+    position:center;
+}
+
+.body{
+    text-align:center;
+}
+
+
+a{
+    color:inherit;
+}
+
+.body-content{
+    text-align:center;
+}
+
+input[type=text]{
+    border-radius:8px;
+}
+
+input[type=text]:focus{
+    border-radius:8px;
+    background-color:rgb(204, 204, 179);
+}
+
+table{
+    border-top:inset;
+    border-radius:12px;
+    position:center;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.hr-short{
+    width:40%;
+}
+
+
+tr {
+    text-align:center;
+}
+
+td {
+    padding: 12px;
+}
+
+th{
+    padding: 12px;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
