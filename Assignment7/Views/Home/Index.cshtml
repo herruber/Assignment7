@@ -2,55 +2,55 @@
 
 @using Assignment7.Repository;
 
-<div ng-app="personApp">
+<div class="index outershadow" ng-app="personApp">
 
 
-    <div ng-controller="PersonController">
-
-
+    <div ng-controller="PersonController" ng-init="scope.initVariables()">
+        <br />
         <input type="text" name="search" ng-model="searchTerm" placeholder="Search.."/>
-        <hr class="hr-short" />
-        @*<select ng-model="Option">
-            <option value=@PersonRepo.menuOption.City>City</option>
-            <option value=@PersonRepo.menuOption.ID>Id</option>
-            <option value=@PersonRepo.menuOption.Name>Name</option>
-            <option value=@PersonRepo.menuOption.Occupation>Occupation</option>
-        </select>
-
-        <button ng-click="getSearchData(searchTerm, Option)">Search</button>*@
+        <br />
+        <br />
 
         @using (Html.BeginForm(null, null, FormMethod.Get, new { name = "frm", id = "frm" }))
         {
             @Html.AntiForgeryToken()
-            
-            <div><input type="text" ng-model="Models.Person.Name" placeholder="Enter Name.." /></div>
-            <div><input type="text" ng-model="Models.Person.City" placeholder="Enter City.." /></div>
-            <div><input type="text" ng-model="Models.Person.Occupation" placeholder="Enter Occupation.." /></div>
 
+            <div class="createContainer">
+                <div><input type="text" ng-model="Models.Person.Name" placeholder="Enter Name.." /></div>
+                <div><input type="text" ng-model="Models.Person.City" placeholder="Enter City.." /></div>
+                <div><input type="text" ng-model="Models.Person.Occupation" placeholder="Enter Occupation.." /></div>
+            </div>
         }
-        <hr class="hr-short" />
-        <button ng-click="sendData()">Create Person</button>
         <br />
 
+        <button class="add" ng-click="sendData()">Create Person</button>
+        <br />
+        <br />
         <div class="jumbotron" ng-init="initData()">
-            <table>
-                <tr>
-                    <th>Index</th>
-                    <th>ID</th>
-                    <th ng-click="orderSetup('Name')">Name</th>
-                    <th ng-click="orderSetup('City')">City</th>
-                    <th ng-click="orderSetup('Occupation')">Occupation</th>
-                </tr>
 
-                <tr ng-repeat="model in data|filter:searchTerm|orderBy : orderType : orderDir  track by $index">
-                    <td>{{$index}}</td>
-                    <td>{{model.ID}}</td>
-                    <td>{{model.Name}}</td>
-                    <td>{{model.City}}</td>
-                    <td>{{model.Occupation}}</td>
-                    <td><button ng-click="removeData(model.ID, $index)">Remove</button></td>
-                </tr>
-            </table>
+                <table>
+                    <tr>
+                        <th class="orderlink" ng-click="orderSetup('Name')">Name</th>
+                        <th class="orderlink" ng-click="orderSetup('City')">City</th>
+                        <th class="orderlink" ng-click="orderSetup('Occupation')">Occupation</th>
+                    </tr>
+
+                    <tr class="tr-hoverable" ng-repeat="model in data|filter:searchTerm|orderBy : orderType : orderDir  track by $index">
+                        @*<td>{{$index}}</td>
+                        <td>{{model.ID}}</td>*@
+
+                        <td ng-show="!edit"> {{model.Name}} </td>
+                        <td ng-show="!edit"> {{model.City}} </td>
+                        <td ng-show="!edit"> {{model.Occupation}} </td>
+
+                        <td ng-show="edit"> <input type="text" ng-model="Models.Person.Name" ng-value="model.Name" /></td>
+                        <td ng-show="edit"> <input type="text" ng-model="Models.Person.City" ng-value="model.City" /></td>
+                        <td ng-show="edit"> <input type="text" ng-model="Models.Person.Occupation" ng-value="model.Occupation" /></td>
+
+                        <td><button class="remove" ng-click="removeData(model)">Remove</button><div class="divider"></div> <button class="add" ng-show="!edit" ng-click="edit = true">Edit</button> <button ng-show="edit" ng-click="edit = false; editData(model, Models.Person.Name, Models.Person.City, Models.Person.Occupation)">Confirm</button> </td>
+                    </tr>
+                </table>
+            <br />
         </div>
     </div>
 </div>

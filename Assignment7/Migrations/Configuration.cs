@@ -24,7 +24,10 @@ namespace Assignment7.Migrations
                 new Person { ID = 1, City = "Skellefteå", Name = "Robert Nyqvist", Occupation="Studerande"},
                 new Person { ID = 2, City = "Stockholm", Name = "Arne Weise", Occupation="Barista"},
                 new Person { ID = 3, City = "Umeå", Name = "Anders Saucig", Occupation="Arbetslös"},
-                new Person { ID = 4, City = "Ursviken", Name = "Urban Ur", Occupation="Urmakare"}               
+                new Person { ID = 4, City = "Ursviken", Name = "Urban Ur", Occupation="Urmakare"},
+                new Person { ID = 5, City = "Järfälla", Name = "Pia Petersson", Occupation = "Formel 1 förare" },
+                new Person { ID = 6, City = "Kalix", Name = "Jan Banan", Occupation = "Bilmekaniker" },
+                new Person { ID = 7, City = "Bergsbyn", Name = "Leif Larsson", Occupation = "Kakmonster" }
                 );
         }
     }

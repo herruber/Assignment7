@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -168,6 +169,14 @@
     <Compile Include="Migrations\201711160834314_seed.Designer.cs">
       <DependentUpon>201711160834314_seed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711172318179_home.cs" />
+    <Compile Include="Migrations\201711172318179_home.Designer.cs">
+      <DependentUpon>201711172318179_home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711181620217_newtest.cs" />
+    <Compile Include="Migrations\201711181620217_newtest.Designer.cs">
+      <DependentUpon>201711181620217_newtest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -240,6 +249,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711160834314_seed.resx">
       <DependentUpon>201711160834314_seed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711172318179_home.resx">
+      <DependentUpon>201711172318179_home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711181620217_newtest.resx">
+      <DependentUpon>201711181620217_newtest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

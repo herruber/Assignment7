@@ -3,17 +3,31 @@
     var app = angular.module("personApp", []);
 
     var PersonController = function ($scope, $http) {
-        $scope.data = "this will contain data..";
+        //$scope.data = "this will contain data..";
+
+        $scope.initVariables = function()
+        {
+            $scope.showCreate = false;
+            $scope.showPeople = false;
+        }
+
+        //$scope.sendData = function () {
+        //    //http.post passes on a model
+        //    $http.post('/api/Person/PostPerson', $scope.Models.Person)
+        //    .then(function (response) {
+        //        $scope.data.push(angular.copy($scope.Models.Person));
+        //        $scope.ClearForm();
+
+        //    });
+        //}
 
         $scope.sendData = function () {
             //http.post passes on a model
             $http.post('/api/Person/PostPerson', $scope.Models.Person)
             .then(function (response) {
                 $scope.data.push(angular.copy($scope.Models.Person));
-                $scope.ClearForm() //Clears current form
+                $scope.ClearForm();
 
-                //Fixes issue with trying to remove a person not yet published to database
-                $scope.getData()
             });
         }
 
@@ -30,6 +44,8 @@
         $scope.initData = function () {
             $scope.orderDir = true;
             $scope.orderType = "Name";
+            $scope.edit = false;
+
             $scope.getData();
         }
 
@@ -39,14 +55,21 @@
             document.forms['frm'].reset()
         }
 
-        $scope.removeData = function(id, index)
+        //Using test = index of the item we want to remove.
+        //Avoid using $index, when filtering a list the filtered list indexes do not equal the data list indexes.
+        $scope.removeData = function(item)
         {
+            //To avoid getting wrong index
+            var test = $scope.data.indexOf(item);
 
-                $http.get('/api/Person/DeletePerson/' + id)
+                $http.get('/api/Person/DeletePerson/' + item.ID)
                 .then(function (response) {
-                $scope.data.splice(index, 1)
-            });
-               
+
+                    //Got index before item was removed from DB
+                    $scope.data.splice(test, 1);
+                });
+
+                debugger;
         }
 
         $scope.getSearchData = function (searchTerm, Option) {
@@ -57,6 +80,25 @@
                 $scope.data = response.data;
                 debugger;
             });
+        }
+
+        $scope.editData = function(person, name, city, occ)
+        {
+
+            $scope.editName = false;
+
+            if (name && city && occ) { //If none of these feilds are null, undef, empty
+                alert(name)
+
+                person.Name = name;
+                person.City = city;
+                person.Occupation = occ;
+
+                $http.post('/api/Person/PostPerson', person)
+            }
+
+            
+
         }
 
         $scope.orderSetup = function(input)

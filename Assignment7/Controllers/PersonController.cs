@@ -101,6 +101,14 @@ namespace Assignment7.Controllers
             return Ok(pers);
         }
 
+        [HttpGet]
+        public IHttpActionResult RefillPersons()
+        {
+            repo.RefillDB();
+
+            return Ok();
+        }
+
         //protected override void Dispose(bool disposing)
         //{
         //    if (disposing)
