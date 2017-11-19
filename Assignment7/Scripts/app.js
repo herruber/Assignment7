@@ -28,15 +28,17 @@
                 $scope.data.push(angular.copy($scope.Models.Person));
                 $scope.ClearForm();
 
+
+                $scope.getData();
+
             });
         }
 
         $scope.getData = function () {
             $http.get('/api/Person/getPersons')
             .then(function (response) {
-                //debugger;
+                
                 $scope.data = response.data;
-
             });
         }
 

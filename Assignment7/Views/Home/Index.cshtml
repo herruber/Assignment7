@@ -16,6 +16,7 @@
             @Html.AntiForgeryToken()
 
             <div class="createContainer">
+                <input type="hidden" ng-model="Models.Person.ID" value="" />
                 <div><input type="text" ng-model="Models.Person.Name" placeholder="Enter Name.." /></div>
                 <div><input type="text" ng-model="Models.Person.City" placeholder="Enter City.." /></div>
                 <div><input type="text" ng-model="Models.Person.Occupation" placeholder="Enter Occupation.." /></div>
