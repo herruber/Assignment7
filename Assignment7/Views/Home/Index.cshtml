@@ -17,7 +17,7 @@
 
             <div class="createContainer">
                 <input type="hidden" ng-model="Models.Person.ID" value="" />
-                <div><input type="text" ng-model="Models.Person.Name" placeholder="Enter Name.." /></div>
+                <div><input type="text" ng-model="Models.Person.Name" placeholder="Enter Name.." required/></div>
                 <div><input type="text" ng-model="Models.Person.City" placeholder="Enter City.." /></div>
                 <div><input type="text" ng-model="Models.Person.Occupation" placeholder="Enter Occupation.." /></div>
             </div>
@@ -44,11 +44,11 @@
                         <td ng-show="!edit"> {{model.City}} </td>
                         <td ng-show="!edit"> {{model.Occupation}} </td>
 
-                        <td ng-show="edit"> <input type="text" ng-model="Models.Person.Name" ng-value="model.Name" /></td>
-                        <td ng-show="edit"> <input type="text" ng-model="Models.Person.City" ng-value="model.City" /></td>
-                        <td ng-show="edit"> <input type="text" ng-model="Models.Person.Occupation" ng-value="model.Occupation" /></td>
+                        <td ng-show="edit"> <input type="text" ng-model="model.Name"/></td>
+                        <td ng-show="edit"> <input type="text" ng-model="model.City"/></td>
+                        <td ng-show="edit"> <input type="text" ng-model="model.Occupation"/></td>
 
-                        <td><button class="remove" ng-click="removeData(model)">Remove</button><div class="divider"></div> <button class="add" ng-show="!edit" ng-click="edit = true">Edit</button> <button ng-show="edit" ng-click="edit = false; editData(model, Models.Person.Name, Models.Person.City, Models.Person.Occupation)">Confirm</button> </td>
+                        <td><button class="remove" ng-click="removeData(model)">Remove</button><div class="divider"></div> <button class="add" ng-show="!edit" ng-click="edit = true">Edit</button> <button ng-show="edit" ng-click="edit = false; editData(model, model.Name, model.City, model.Occupation)">Confirm</button> </td>
                     </tr>
                 </table>
             <br />

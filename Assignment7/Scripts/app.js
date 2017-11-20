@@ -87,19 +87,32 @@
         $scope.editData = function(person, name, city, occ)
         {
 
-            $scope.editName = false;
+            alert(occ)
+            if (!name && !city && !occ) {
 
-            if (name && city && occ) { //If none of these feilds are null, undef, empty
-                alert(name)
+            }
+            else { //IF one or more fields have been changed
+
+                if (name) {
+                    person.Name = name;
+                }
+
+                if (city) {
+                    person.City = city;
+                }
+
+                if (occ) {
+                    person.Occupation = occ;
+                }
 
                 person.Name = name;
                 person.City = city;
                 person.Occupation = occ;
 
                 $http.post('/api/Person/PostPerson', person)
+
             }
 
-            
 
         }
 

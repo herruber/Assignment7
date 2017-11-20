@@ -10,8 +10,11 @@ namespace Assignment7.Models
     {
         [Key]
         public int ID { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string City { get; set; }
+        [Required]
         public string Occupation { get; set; }
     }
 }

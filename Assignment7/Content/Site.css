@@ -84,6 +84,7 @@ div{
 
 input[type=text]{
     border-radius:8px;
+    max-width:100px;
     box-shadow:rgba(0, 0, 0, 0.4) 3px 2px inset;
     padding:5px;
 }
@@ -186,13 +187,21 @@ textarea {
     text-align:center;
 }
 
+.tr-hoverable{
+    background-color:initial;
+    transform:scale(1, 1);
 
+    transition:background-color 1s, transform 1s;
+}
     
 .tr-hoverable:hover{
+        
+        background-color:#f3f3f3;
+        transform:scale(1.1, 1.2);
 
-        animation:enlarge 1s;
+        /*animation:enlarge 1s;
    
-        animation-fill-mode:forwards;
+        animation-fill-mode:forwards;*/
 }
 
 .pointer{
